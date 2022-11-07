@@ -56,7 +56,7 @@ class PostsController extends Controller
     {
         $post = Post::find($request->input('id'));
         $post->caption = $request->input('caption');
-        $post->date = date('M d, Y');
+        $post->date = date('d/M/Y h:i');
         $post->save();
 
         $imageData = Image::where('post_id', '=', $request->input('id'))->get();
@@ -111,7 +111,7 @@ class PostsController extends Controller
     {
         $post = new Post;
         $post->caption = $request->input('caption');
-        $post->date = date('M d, Y');
+        $post->date = date('d/M/Y h:i');
         $post->person_id = $_COOKIE["person_id"];
         $post->save();
 
